@@ -47,8 +47,33 @@ int main(void) {
 //    printf("%f", c); // c = 1.5
 
 //    强制类型转换
-    double a = 2.5;
-    int b = (int) a;
-    int c = (int) (a + b);//  括号和数学中很像，都是用于提升优先级
-    printf("%d  %d", b, c);
+//    double a = 2.5;
+//    int b = (int) a;
+//    int c = (int) (a + b);//  括号和数学中很像，都是用于提升优先级
+//    printf("%d  %d", b, c);
+
+    //寻找水仙花数
+    for (int i = 100; i < 1000; ++i) {
+        int a = i%10,b = i /10 % 10,c = i/10/10;
+        if(a*a*a + b*b*b + c*c*c == i){
+            printf("%d这是水仙花数\n",i);
+        };
+    };
+    //打印九九乘法表
+    for(int i = 0;i<=9;i++){
+        for (int j = 1; j <= i; ++j) {
+            printf("%d x %d = %d ",i,j,i*j);
+        }
+        printf("\n");
+    };
+    //斐波那契数列解法其一
+    int target = 7, result;
+    int a = 1,b = 1,c;
+    for (int i = 2; i < target; ++i) {
+        c = a+b;
+        a = b;
+        b = c;
+    }
+    result = c;
+    printf("%d", result);
 }
