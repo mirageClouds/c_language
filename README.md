@@ -224,3 +224,91 @@ for (int i = 2; i < target; ++i) {
 result = c;
 printf("%d", result);
 ```
+
+## 数组
+
+* 创建和使用
+
+  * `类型 数组名称[数组大小] = {数据1，数据2...}` 后面的数据可以在一开始的时候不赋值，并且数组大小必须为整数
+
+  * 数组的访问，`直接通过数组名称[下标]来访问对应的元素值，下标从0开始`
+
+  * 访问超出数组长度的数据，可以被访问，但是数据无意义
+
+## 多维数组
+
+* 创建和使用
+  * `类型 数组名称[外层数组长度][内层数组长度] = {{数据1，数据2...}，{数据3，数据4...}}`
+  * 存放内存数组长度是需要确定的，存放数组的数组之和和之前一样，可以根据后面的值决定
+  * 多维数组的访问：`数组名称[外层数组下标][内层数组下标]`
+
+## 练习
+
+### 冒泡排序
+
+```c
+int arr[10] = {3,5,7,2,9,0,6,1,8,4};
+for (int i = 0; i < 9; ++i) {
+    _Bool flag = 0;
+    for (int j = 1; j < 10; ++j) {
+        if(arr[j]>arr[j-1]){
+            int tmp = 0;
+            tmp = arr[j-1];
+            arr[j-1] = arr[j];
+            arr[j] = tmp;
+            flag = 1;
+        }
+    }
+    if(flag == 0) break;
+}
+
+for (int i = 0; i < 10; ++i) {
+    printf("%d  ",arr[i]);
+}
+```
+
+### 斐波那契数列解法其二
+
+```c
+int target = 7;
+int dp[target];
+dp[0] = dp[1] = 1;
+for (int i = 2; i < 7; ++i) {
+    dp[i]= dp[i-1]+dp[i-2];
+}
+printf("%d",dp[target -1]);
+```
+
+## 打家劫舍
+
+```c
+int arr[] = {2,7,9,3,1},size = 5;
+int dp[size];
+dp[0] = arr[0];
+dp[1] = arr[1]>arr[0]?arr[1]:arr[0];
+for (int i = 2; i < size; ++i) {
+    dp[i] = dp[i-1]>dp[i-2] + arr[i] ? dp[i-1]:dp[i-2] + arr[i];
+}
+printf("%d",dp[size-1]);
+```
+
+## 字符串
+
+* 第一种写法
+
+  * ```c
+    const char str[] = {'h','e','l','l','o','\0'};
+    ```
+
+* 第二种写法
+
+  * ```c
+     const char str[] = "hello";
+     char str[] = "你好";
+    ```
+
+##  scanf、gets、puts函数
+
+* 从控制台接受输入(scanf)
+  * 
+

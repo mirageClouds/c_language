@@ -52,28 +52,79 @@ int main(void) {
 //    int c = (int) (a + b);//  括号和数学中很像，都是用于提升优先级
 //    printf("%d  %d", b, c);
 
-    //寻找水仙花数
-    for (int i = 100; i < 1000; ++i) {
-        int a = i%10,b = i /10 % 10,c = i/10/10;
-        if(a*a*a + b*b*b + c*c*c == i){
-            printf("%d这是水仙花数\n",i);
-        };
-    };
-    //打印九九乘法表
-    for(int i = 0;i<=9;i++){
-        for (int j = 1; j <= i; ++j) {
-            printf("%d x %d = %d ",i,j,i*j);
-        }
-        printf("\n");
-    };
-    //斐波那契数列解法其一
-    int target = 7, result;
-    int a = 1,b = 1,c;
-    for (int i = 2; i < target; ++i) {
-        c = a+b;
-        a = b;
-        b = c;
-    }
-    result = c;
-    printf("%d", result);
+//    //寻找水仙花数
+//    for (int i = 100; i < 1000; ++i) {
+//        int a = i%10,b = i /10 % 10,c = i/10/10;
+//        if(a*a*a + b*b*b + c*c*c == i){
+//            printf("%d这是水仙花数\n",i);
+//        };
+//    };
+//    //打印九九乘法表
+//    for(int i = 0;i<=9;i++){
+//        for (int j = 1; j <= i; ++j) {
+//            printf("%d x %d = %d ",i,j,i*j);
+//        }
+//        printf("\n");
+//    };
+//    //斐波那契数列解法其一
+//    int target = 7, result;
+//    int a = 1,b = 1,c;
+//    for (int i = 2; i < target; ++i) {
+//        c = a+b;
+//        a = b;
+//        b = c;
+//    }
+//    result = c;
+//    printf("%d", result);
+
+//  冒泡排序
+//    int arr[10] = {3,5,7,2,9,0,6,1,8,4};
+//    for (int i = 0; i < 9; ++i) {
+//        _Bool flag = 0;
+//        for (int j = 1; j < 10; ++j) {
+//            if(arr[j]>arr[j-1]){
+//                int tmp = 0;
+//                tmp = arr[j-1];
+//                arr[j-1] = arr[j];
+//                arr[j] = tmp;
+//                flag = 1;
+//            }
+//        }
+//        if(flag == 0) break;
+//    }
+//
+//    for (int i = 0; i < 10; ++i) {
+//        printf("%d  ",arr[i]);
+//    }
+
+//    斐波那契数列解法其二
+//    int target = 7;
+//    int dp[target];
+//    dp[0] = dp[1] = 1;
+//    for (int i = 2; i < 7; ++i) {
+//        dp[i]= dp[i-1]+dp[i-2];
+//    }
+//    printf("%d",dp[target -1]);
+
+//    打家劫舍
+//    int arr[] = {2,7,9,3,1},size = 5;
+//    int dp[size];
+//    dp[0] = arr[0];
+//    dp[1] = arr[1]>arr[0]?arr[1]:arr[0];
+//    for (int i = 2; i < size; ++i) {
+//        dp[i] = dp[i-1]>dp[i-2] + arr[i] ? dp[i-1]:dp[i-2] + arr[i];
+//    }
+//    printf("%d",dp[size-1]);
+
+
+//  字符串写法
+//    const char str[] = {'h','e','l','l','o','\0'};
+//    const char str[] = "hello";
+//    char str[] = "你好";
+//    printf("%s",str);
+
+//    从控制台接受输入(scanf)
+    char str[20];
+    scanf("%s",str);
+    printf("%s",str);
 }
