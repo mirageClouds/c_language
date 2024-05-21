@@ -1,7 +1,21 @@
 #include <stdio.h>
+#include <string.h>
+
+void test();
+void test1(int,int);
+void test2(int arr[]);
+int fib(int n){
+    if(n == 1|| n == 2) return 1;
+    return fib(n -1) + fib(n-2);
+}
 
 int main(void) {
-//    声明int变量类型,并打印
+
+}
+
+void test(){
+    printf("hello world");
+    //    声明int变量类型,并打印
 //    int a = 10, b = 20;
 //    int hello_Word = 10;
 //    int c = a + b;
@@ -124,7 +138,65 @@ int main(void) {
 //    printf("%s",str);
 
 //    从控制台接受输入(scanf)
-    char str[20];
-    scanf("%s",str);
-    printf("%s",str);
+//    char str[20];
+//    scanf("%s",str);
+//    printf("%s",str);
+
+//     从控制台接受输入(scanf) 非数组类型
+//    int i ;
+//    scanf("%d",&i);
+//    printf("%d",i);
+
+//    char str [20];
+//    gets(str);
+//    puts(str);
+//
+//    char c ;
+//    c = getchar();
+//    putchar(c);
+
+//  回文串判断
+//    char str[64];
+//    scanf("%s",str);
+//    int len = strlen(str),left = 0,right = len-1;
+//    _Bool flag = 1;
+//    while(left<right){
+//        if(str[left]!=str[right]){
+//            flag = 0;
+//            break;
+//        }
+//        left++;
+//        right--;
+//    }
+//
+//    puts(flag?"是回":"不是");
+
+//    包含字符串判断(暴力算法)
+//    char str[64];
+//    char str1[64];
+//    gets(str);
+//    gets(str1);
+//    int len1 = strlen(str1);
+//    int len2 = strlen(str1);
+//    _Bool flag = 0;
+//    for (int i = 0; i < len1; ++i) {
+//        for (int j = 0; j < len2; ++j) {
+//            flag = 0;
+//            if(str[i + j] != str1[j]){
+//                flag = 1;
+//                break;
+//            }
+//        };
+//        if(!flag) break;
+//    };
+//    puts(flag?"不是":"是");
+}
+
+void test1(int a ,int b){
+    int c = a+b;
+    printf("%d",c);
+}
+
+void test2(int a[]){
+    a[0] = 1;
 }

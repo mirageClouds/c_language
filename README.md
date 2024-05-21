@@ -310,5 +310,147 @@ printf("%d",dp[size-1]);
 ##  scanf、gets、puts函数
 
 * 从控制台接受输入(scanf)
-  * 
 
+  * 使用方式（数组）
+
+    * ```c
+      char str[20];
+      scanf("%s",str);
+      printf("%s",str);
+      ```
+
+  * 使用方式(非数组)
+
+    * ```c
+      int i ;
+      scanf("%d",&i);
+      printf("%d",i);
+      ```
+
+  * 注意，如果输入的不是数组类型，要在填写变量的时候在前面添加一个&符号，这里的&不是做与运算，而是取地址操作
+
+* 从控制台接受字符串专用函数(gets)
+
+  * ```c
+    char str [20];
+    gets(str);
+    printf("%s",str);
+    ```
+
+* 专门打印字符串到控制台的函数(puts)
+
+  * ```c
+    char str [20];
+    gets(str);
+    puts(str);
+    ```
+
+* 专门处理单独字符的函数(getchar)
+
+  * ```c
+    char c ;
+    c = getchar();
+    printf("%c",c);
+    ```
+
+* 专门打印字符到控制台的函数(putchar)
+
+  * ```c
+    char c ;
+    c = getchar();
+    putchar(c);
+    ```
+
+## 练习
+
+### 回文串判断
+
+* ```c
+  char str[64];
+  scanf("%s",str);
+  int len = strlen(str),left = 0,right = len-1;
+  _Bool flag = 1;
+  while(left<right){
+      if(str[left]!=str[right]){
+          flag = 0;
+          break;
+      }
+      left++;
+      right--;
+  }
+  
+  puts(flag?"是回":"不是");
+  ```
+
+### 包含字符串判断
+
+* ```c
+  char str[64];
+  char str1[64];
+  gets(str);
+  gets(str1);
+  int len1 = strlen(str1);
+  int len2 = strlen(str1);
+  _Bool flag = 0;
+  for (int i = 0; i < len1; ++i) {
+      for (int j = 0; j < len2; ++j) {
+          flag = 0;
+          if(str[i + j] != str1[j]){
+              flag = 1;
+              break;
+          }
+      };
+      if(!flag) break;
+  };
+  puts(flag?"不是":"是");
+  ```
+
+## 函数
+
+### 创建和使用函数
+
+* 创建函数：`返回值类型 函数名称([函数参数])`
+
+* 定义函数原型:
+
+  * `void test(void);`
+  * 因为c语言是从上往下的，所以要在下面的主函数中使用该函数，需要在上面定义
+
+* 定义函数内容:
+
+  * ~~~c
+    void test(void){
+    	printf("测试")
+    }
+    ~~~
+
+  * 函数的具体定义，添加一个花括号并在其中编码，就和在main中编写一样
+
+  * 可以不用定义函数原型，直接在需要调用函数的上方直接编写函数的具体定义
+
+### 函数的参数和返回
+
+*	传参
+  *	声明：`void test(参数名称);`
+  *	调用：`test(参数内容);`
+  *	static关键字：使函数内容不会在执行一次后就被销毁
+*	返回
+  *	声明：`函数返回值类型 函数名称(参数名称);`
+  *	函数内部:需要使用`return`将内容返回
+
+## 实战
+
+### 斐波那契数列解法
+
+* ```c
+  int fib(int n){
+      if(n == 1|| n == 2) return 1;
+      return fib(n -1) + fib(n-2);
+  }
+  
+  int main(void) {
+      printf("%d", fib(7));
+  }
+  ```
+
+  
