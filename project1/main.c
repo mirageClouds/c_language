@@ -2,18 +2,67 @@
 #include <string.h>
 
 void test();
-void test1(int,int);
+
+void test1(int, int);
+
 void test2(int arr[]);
-int fib(int n){
-    if(n == 1|| n == 2) return 1;
-    return fib(n -1) + fib(n-2);
+
+int fib(int n) {
+    if (n == 1 || n == 2) return 1;
+    return fib(n - 1) + fib(n - 2);
+}
+
+int swap(int *a, int *b) {
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+    return *a, *b;
 }
 
 int main(void) {
+//    int a = 10;
+//    //指针类型需要与变量类型相同，且后面需要添加一个*符号(注意这里不是乘法运算，表示的是对于类型的指针)
+//    int *p = &a; //这里的&不是进行按位与运算，而是取地址操作，也就是拿到变量a的地址
+//    *p = 555;
+//    printf("%p\n", p); //地址使用%p表示
+//    printf("%p,%d", p, *p); //我们可以在指针变量前添加一个*号(间接运算符，也可以叫解引运算符)来获取对应地址存储的值
+//    int a = 10, b = 20;
+//    swap(&a, &b), swap(&a, &b));
+//    scanf("%d", &a);
+//    printf("%d", a);
+//    char str[] = "hello world";
+//    char *p = str;
+//    printf("%c", *(p + 1));
+
+//    int arr[][3] = {{1, 2, 3},
+//                    {4, 5, 6}};
+//    int *p = arr[0];  //因为是二维数组，注意这里要指向第一个元素，来降一个维度才能正确给到指针
+//    //同理如果这里是arr[1]的话那么就表示指向二维数组中第二个数组的首元素
+//    printf("%d = %d", *(p + 4), arr[1][1]);   //实际上这两种访问形式都是一样的
+
+//    int a = 20;
+//    int *p = &a;   //指向普通变量的指针
+//    //因为现在要指向一个int *类型的变量，所以类型为int* 再加一个*
+//    int **pp = &p;   //指向指针的指针（二级指针）
+//    int ***ppp = &pp;   //指向指针的指针的指针（三级指针）
+
+//    int arr[3] = {111, 222, 333};
+//    int (*p)[3] = &arr;  //直接对整个数组再取一次地址
+//
+//    printf("%d, %d, %d", *(*p + 0), *(*p + 1), *(*p + 2));   //要获取数组中的每个元素，稍微有点麻烦
+
+    int arr[][3] = {{111, 222, 333},
+                    {444, 555, 666}};
+    int (*p)[3] = arr;  //二维数组不需要再取地址了，因为现在维度提升，数组指针指向的是二维数组中的其中一个元素（因为元素本身就是一个数组）
+    printf("%d", *(*p + 0));   //因为上面直接指向的就是第一个数组，所以想要获取第一个元素和之前是一模一样的
+    printf("%d", *(*(p + 1) +
+                   2));   //首先*(p+1)为一个整体，表示第二个数组（因为是数组指针，所以这里+1一次性跳一个数组的长度），然后再到外层+2表示数组中的第三个元素，最后再取地址，就是第二个数组的第三个元素了
+
 
 }
 
-void test(){
+
+void test() {
     printf("hello world");
     //    声明int变量类型,并打印
 //    int a = 10, b = 20;
@@ -192,11 +241,11 @@ void test(){
 //    puts(flag?"不是":"是");
 }
 
-void test1(int a ,int b){
-    int c = a+b;
-    printf("%d",c);
+void test1(int a, int b) {
+    int c = a + b;
+    printf("%d", c);
 }
 
-void test2(int a[]){
+void test2(int a[]) {
     a[0] = 1;
 }
