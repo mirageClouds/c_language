@@ -19,6 +19,48 @@ int swap(int *a, int *b) {
     return *a, *b;
 }
 
+int * test3(int* a ) {
+    int i = a;
+    return &i;
+}
+
+int sum (int a,int b) {
+    return a+b;
+}
+
+int sumImpl(int (*p)(int,int),int a,int b) {
+    return p(a,b);
+}
+
+// 合并两个数组
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
+    int i = m-1, j = n-1;
+    for(int k = m+n-1;k>=0;--k){
+        if(i<0){
+            *(nums1+k) = *(nums2+j);
+            j--;
+        }else if(j<0){
+            *(nums1+k) =*(nums1+i);
+            i--;
+        }else{
+            if(*(nums1+i)>*(nums2+j)){
+                *(nums1+k) =*(nums1+i);
+                i--;
+            }else{
+                *(nums1+k) = *(nums2+j);
+                j--;
+            }
+        }
+    }
+}
+
+//结构体
+struct Student {
+    int id;
+    int age;
+    char * name;
+};
+
 int main(void) {
 //    int a = 10;
 //    //指针类型需要与变量类型相同，且后面需要添加一个*符号(注意这里不是乘法运算，表示的是对于类型的指针)
@@ -51,14 +93,27 @@ int main(void) {
 //
 //    printf("%d, %d, %d", *(*p + 0), *(*p + 1), *(*p + 2));   //要获取数组中的每个元素，稍微有点麻烦
 
-    int arr[][3] = {{111, 222, 333},
-                    {444, 555, 666}};
-    int (*p)[3] = arr;  //二维数组不需要再取地址了，因为现在维度提升，数组指针指向的是二维数组中的其中一个元素（因为元素本身就是一个数组）
-    printf("%d", *(*p + 0));   //因为上面直接指向的就是第一个数组，所以想要获取第一个元素和之前是一模一样的
-    printf("%d", *(*(p + 1) +
-                   2));   //首先*(p+1)为一个整体，表示第二个数组（因为是数组指针，所以这里+1一次性跳一个数组的长度），然后再到外层+2表示数组中的第三个元素，最后再取地址，就是第二个数组的第三个元素了
+    // int arr[][3] = {{111, 222, 333},
+    //                 {444, 555, 666}};
+    // int (*p)[3] = arr;  //二维数组不需要再取地址了，因为现在维度提升，数组指针指向的是二维数组中的其中一个元素（因为元素本身就是一个数组）
+    // printf("%d", *(*p + 0));   //因为上面直接指向的就是第一个数组，所以想要获取第一个元素和之前是一模一样的
+    // printf("%d", *(*(p + 1) +
+    //                2));   //首先*(p+1)为一个整体，表示第二个数组（因为是数组指针，所以这里+1一次性跳一个数组的长度），然后再到外层+2表示数组中的第三个元素，最后再取地址，就是第二个数组的第三个元素了
+
+    //
+    // int a = 10;
+    // int * p = test3(a);
+    // printf("%d",*p);
 
 
+    // int (*p)(int,int) = sum;
+    //
+    // int res = sumImpl(p,10,20);
+    //
+    // printf("%d",res);
+
+    //结构体
+    struct Student student = {1,18,"小明"};
 }
 
 
