@@ -258,7 +258,7 @@ struct Student {
 };
 
 //ÁªºÏÌå
-union studnetInfo {
+union studnet_info {
     char *name;
     int age;
 };
